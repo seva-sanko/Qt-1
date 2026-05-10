@@ -1,16 +1,9 @@
 # Qt-1
 
-Цель: написать собственный класс, который содержит единую коллекцию из виджетов динамического размера.
+Qt lab — dynamic widget collection with signals/slots (lab6).
 
-Создать метод и кнопку динамического добавления элементов интерфейса в коллекцию, а также метод и кнопку для соединения между собой всех помещенных в коллекцию виджетов с помощью механизма сигналов/слотов, чтобы действие с одним из них отображалось на других.
+Write a class that holds a resizable collection of widgets. A button dynamically adds new widgets to the collection; another button connects all widgets to each other via signals/slots so that interacting with one affects the others.
 
-Обязательные ограничения при выполнении задания:
-  -все новые виджеты автоматически НЕ соединяются;
-  -виджеты из коллекции должны быть соединены напрямую через сигналы/слоты без использования прокси методов или классов;
-  -для определения типа класса использовать QMetaObject, а не цепочку из cast преобразований.
-  
-Через функции отладки проверить, что соединения между объектами не дублируется многократно, и отсутствуют "висячие" соединения
+**Constraints:** widgets are NOT auto-connected on creation; connections are established on demand via `QMetaObject` (no `dynamic_cast`/`static_cast`). Connected widget types: `QLabel`, `QSlider`, `QScrollBar`, `QSpinBox`.
 
-Использовать виджеты следующих классов для соединения: QLabel, QSlider, QScrollbar, QSpinBox. Чтобы определить к какому классу относится объект использовать метаинформацию. 
-
-Запрещается использовать static/dynamic_cast и виртуальные методы.
+**Files:** `widgetcollection.h/.cpp` — collection class; `mainwindow.h/.cpp/.ui` — main window.
